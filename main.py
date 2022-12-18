@@ -12,7 +12,7 @@ def help (message:telebot.types.Message):
     text='Чтобы конвертировать валюту необходимо ввести боту команду в формате:\n<имя валюты > \
     <в какую валюту перевести> \
     <количество переводимой валюты>\
-    <Чтобы получить писок доступных валют /values>  '
+    <Чтобы получить писок доступных валют:  /values >  '
     bot.reply_to(message,text)
 
 @bot.message_handler(commands=['values'])
@@ -36,8 +36,7 @@ def get_price(message: telebot.types.Message):
         bot.reply_to(message, f"Не удалось обработать комманду\n{e}")
     else:
         amount = float(amount)
-        if amount >= 1:
-            total_base = str(float(amount * total_base))
+        total_base = str(float(amount * total_base))
         text = f"цена {amount} {quote} в {base} - {total_base}"
         bot.send_message(message.chat.id, text)
 
