@@ -11,7 +11,7 @@ class ValueConverter:
         if quote == base:
             raise ConvertionException(f'Введены одинаковые валюты {base}.')
         if not amount.isdigit():
-            raise ConvertionException(f'Количество переводимой валюты должно быть отрицательным числом {amount}.')
+            raise ConvertionException(f'Количество переводимой валюты должно быть числом {amount}.')
         if float(amount) < 0:
             raise ConvertionException(f'Количество переводимой валюты не может быть отрицательным {amount}.')
 
